@@ -1,0 +1,17 @@
+C:\Users\Admin\Desktop\Lab\Code\EchoEditor\EchoEditor\bin\Release\EchoEditor.exe.config
+C:\Users\Admin\Desktop\Lab\Code\EchoEditor\EchoEditor\bin\Release\EchoEditor.exe
+C:\Users\Admin\Desktop\Lab\Code\EchoEditor\EchoEditor\bin\Release\EchoEditor.pdb
+C:\Users\Admin\Desktop\Lab\Code\EchoEditor\EchoEditor\bin\Release\HtmlAgilityPack.dll
+C:\Users\Admin\Desktop\Lab\Code\EchoEditor\EchoEditor\bin\Release\HtmlAgilityPack.pdb
+C:\Users\Admin\Desktop\Lab\Code\EchoEditor\EchoEditor\bin\Release\HtmlAgilityPack.xml
+C:\Users\Admin\Desktop\Lab\Code\EchoEditor\EchoEditor\obj\Release\EchoEditor.AboutEchoEditor.resources
+C:\Users\Admin\Desktop\Lab\Code\EchoEditor\EchoEditor\obj\Release\EchoEditor.Form1.resources
+C:\Users\Admin\Desktop\Lab\Code\EchoEditor\EchoEditor\obj\Release\EchoEditor.Properties.Resources.resources
+C:\Users\Admin\Desktop\Lab\Code\EchoEditor\EchoEditor\obj\Release\EchoEditor.searchForm.resources
+C:\Users\Admin\Desktop\Lab\Code\EchoEditor\EchoEditor\obj\Release\EchoEditor.settingsForm.resources
+C:\Users\Admin\Desktop\Lab\Code\EchoEditor\EchoEditor\obj\Release\EchoEditor.csproj.GenerateResource.cache
+C:\Users\Admin\Desktop\Lab\Code\EchoEditor\EchoEditor\obj\Release\EchoEditor.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\Lab\Code\EchoEditor\EchoEditor\obj\Release\EchoEditor.csproj.CopyComplete
+C:\Users\Admin\Desktop\Lab\Code\EchoEditor\EchoEditor\obj\Release\EchoEditor.exe
+C:\Users\Admin\Desktop\Lab\Code\EchoEditor\EchoEditor\obj\Release\EchoEditor.pdb
+C:\Users\Admin\Desktop\Lab\Code\EchoEditor\EchoEditor\obj\Release\EchoEditor.csprojAssemblyReference.cache
