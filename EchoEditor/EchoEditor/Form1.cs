@@ -645,6 +645,7 @@ namespace EchoEditor
                 tid = elemList[i].Attributes["tid"].Value;
                 technique = elemList[i].Attributes["technique"].Value;
                 tactic = elemList[i].InnerXml;
+                //Console.WriteLine(String.Format("{0} {1} {2}", technique, tid, tactic));
                 
                 createDictList(mitreDict, technique, tactic, tid);
             }
@@ -654,6 +655,14 @@ namespace EchoEditor
 
                 toolTechniqueComboBox.Items.Add(Path.GetFileName(kvp.Key));
                 toolTechniqueComboBox.Sorted = true;
+                //set initial value
+                // create dictionary out of xml table.
+                //Console.WriteLine("Key = {0}", kvp.Key);
+                //for (int i = 0; i < kvp.Value.Count; i++)
+                //{
+                //    Console.WriteLine("Value = {0}", kvp.Value[i]);
+                //}
+                // sort the value
             }
 
 
@@ -810,6 +819,25 @@ namespace EchoEditor
                 
                 Console.WriteLine(string.Format("else: {0},{1},{2}", oldLineLength, lineCount, lineNum));
             }
+            //oldLineLength = lineNum;
+            //else if (oldLineLength > lineNum)
+            //{
+            //    int charCount = 0;
+            //    int row = 0;
+            //    for (int i = 0; i < lineNum; i++)
+            //    {
+
+            //        charCount += activeLineNum.Lines[i].Length;
+            //        Console.WriteLine(charCount);
+            //        row++;
+            //        activeLineNum.SelectionStart = charCount;
+            //        activeLineNum.ScrollToCaret();
+            //    }
+
+            //    int charCount2 = (activeLineNum.TextLength - activeLineNum.Lines[lineNumber].Length) - 1;
+            //}
+
+
 
 
         }
@@ -1141,7 +1169,38 @@ namespace EchoEditor
         }
 
 
-        
+        //private void richTextBox_TextChanged(object sender, EventArgs e)
+        //{
+        //    ShowLineNum();
+        //}
+
+
+        /*
+        private void TabControl1_MouseDown(object sender, MouseEventArgs e)
+        {
+            System.Diagnostics.Debug.WriteLine("mouse click");
+            int i = 0;
+            // check if the right mouse button was pressed            
+            if (e.Button == MouseButtons.Right)
+            {
+                // iterate through all the tab pages
+                for (i = 0; i < tabControl1.TabCount; i++)
+                {
+                    Rectangle r = tabControl1.GetTabRect(i);
+                    if (r.Contains(e.Location))
+                    {
+                        System.Diagnostics.Debug.WriteLine("Tabpressed: " + i);
+                    }
+                }
+            }
+
+        }
+
+        private void TabControl1_MouseUp(object sender, MouseEventArgs e)
+        {
+            System.Diagnostics.Debug.WriteLine("mouse release");
+        }
+        */
 
 
     }
