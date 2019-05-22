@@ -208,8 +208,9 @@ namespace EchoEditor
             if (tabControl1.TabPages[TabIndex].Text.Contains("TabPage"))
             {
                 SaveFileDialog saveFileDialog1 = new SaveFileDialog();
-                string t_id = tid.Replace("technique", "").Replace("T", "").Split('/').Last();
-                saveFileDialog1.FileName = SigmaNameFormat.Replace("<tid>", t_id).Replace("<technique>", technique);
+                GetSettingInfo();
+                string t_id = tidTextBox.Text.Replace("technique", "").Replace("T", "").Split('/').Last();
+                saveFileDialog1.FileName = SigmaNameFormat.Replace("<tid>", t_id).Replace("<technique>", toolTechniqueComboBox.Items[toolTechniqueComboBox.SelectedIndex].ToString());
                 System.Diagnostics.Debug.WriteLine(string.Format("SaveFileName: {0}", saveFileDialog1.FileName));
                 SaveFileDialog_Attrib(saveFileDialog1);
                 if (saveFileDialog1.ShowDialog() == DialogResult.OK)
@@ -238,6 +239,7 @@ namespace EchoEditor
         private void loadInitButton_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Debug.WriteLine("[+] EventClick: loadInitButton_Click");
+            GetSettingInfo();
             ReplaceStrInActiveRichtextBox();
             LoadTermsFontColor();
 
@@ -423,14 +425,16 @@ namespace EchoEditor
             RichTextBox rtbWorkPlace = new RichTextBox();
             myTabPage.Controls.Add(rtbWorkPlace);
 
-            newRichTextBoxControls(rtbWorkPlace);
-
             //new properties of the line number
             RichTextBox rtbLineNum = new RichTextBox();
             myTabPage.Controls.Add(rtbLineNum);
 
             newLineNumRTB(rtbLineNum);
 
+            // editor
+            newRichTextBoxControls(rtbWorkPlace);
+
+            //rtbLineNum.BringToFront();
             // refresh the tabcontrol
             tabControl1.Refresh();
             
@@ -441,11 +445,15 @@ namespace EchoEditor
             System.Diagnostics.Debug.WriteLine("[+] Function Trigger : newRichTextBoxControls");
             // new properties of the working place
             rtbWorkPlace.AcceptsTab = true;
-            rtbWorkPlace.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-| System.Windows.Forms.AnchorStyles.Left)
-| System.Windows.Forms.AnchorStyles.Right)));
+            rtbWorkPlace.Dock = DockStyle.Fill;
+            //rtbWorkPlace.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top
+            //    | System.Windows.Forms.AnchorStyles.Bottom)
+            //    | System.Windows.Forms.AnchorStyles.Left)
+            //    | System.Windows.Forms.AnchorStyles.Right)));
+            //rtbWorkPlace.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            //| System.Windows.Forms.AnchorStyles.Right)));
             rtbWorkPlace.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            rtbWorkPlace.EnableAutoDragDrop = true;
+            rtbWorkPlace.EnableAutoDragDrop = false;
             rtbWorkPlace.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             //rtbWorkPlace.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             rtbWorkPlace.ForeColor = Color.Bisque;
@@ -457,7 +465,7 @@ namespace EchoEditor
             rtbWorkPlace.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
             rtbWorkPlace.Size = new System.Drawing.Size(1838, 630);
             rtbWorkPlace.TabIndex = 0;
-            rtbWorkPlace.KeyDown += new System.Windows.Forms.KeyEventHandler(this.richTextBox_TextChanged);
+            rtbWorkPlace.KeyUp += new System.Windows.Forms.KeyEventHandler(this.richTextBox_TextChanged);
             //rtbWorkPlace.TextChanged += new System.EventHandler(this.richTextBox_TextChanged2);
             
 
@@ -467,8 +475,9 @@ namespace EchoEditor
         {
             System.Diagnostics.Debug.WriteLine("[+] Function Trigger : newLineNumRTB");
             //rtbLineNum.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)System.Windows.Forms.AnchorStyles.Left)));
-            rtbLineNum.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top)
-| System.Windows.Forms.AnchorStyles.Left)));
+            //            rtbLineNum.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top)
+            //| System.Windows.Forms.AnchorStyles.Left)));
+            rtbLineNum.Dock = DockStyle.Left;
             rtbLineNum.BackColor = System.Drawing.SystemColors.Info;
             rtbLineNum.BorderStyle = System.Windows.Forms.BorderStyle.None;
             rtbLineNum.Font = new System.Drawing.Font("Consolas", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Regular | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -478,7 +487,7 @@ namespace EchoEditor
             rtbLineNum.ReadOnly = true;
             //rtbLineNum.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
             rtbLineNum.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            rtbLineNum.Size = new System.Drawing.Size(38, 629);
+            rtbLineNum.Size = new System.Drawing.Size(38, 630);
             rtbLineNum.TabIndex = 10;
             rtbLineNum.Text = "";
             rtbLineNum.Cursor = System.Windows.Forms.Cursors.PanNE;
@@ -805,11 +814,13 @@ namespace EchoEditor
 
                     charCount += activeLineNum.Lines[i].Length;
                     row++;
+                    
                 }
                 Console.WriteLine(string.Format("{0},{1},{2} {3}", oldLineLength, lineCount, lineNum, row));
                 Console.WriteLine(charCount);
-                activeLineNum.SelectionStart = charCount-1;
-                if (lineNum !=row)
+                activeLineNum.SelectionStart = charCount;
+                //activeLineNum.ScrollToCaret();
+                if (lineNum != row)
                 {
                     activeLineNum.ScrollToCaret();
                 }
@@ -819,25 +830,6 @@ namespace EchoEditor
                 
                 Console.WriteLine(string.Format("else: {0},{1},{2}", oldLineLength, lineCount, lineNum));
             }
-            //oldLineLength = lineNum;
-            //else if (oldLineLength > lineNum)
-            //{
-            //    int charCount = 0;
-            //    int row = 0;
-            //    for (int i = 0; i < lineNum; i++)
-            //    {
-
-            //        charCount += activeLineNum.Lines[i].Length;
-            //        Console.WriteLine(charCount);
-            //        row++;
-            //        activeLineNum.SelectionStart = charCount;
-            //        activeLineNum.ScrollToCaret();
-            //    }
-
-            //    int charCount2 = (activeLineNum.TextLength - activeLineNum.Lines[lineNumber].Length) - 1;
-            //}
-
-
 
 
         }
@@ -1167,6 +1159,12 @@ namespace EchoEditor
             AboutEchoEditor echo = new AboutEchoEditor();
             echo.ShowDialog();
         }
+
+
+
+
+
+
 
 
         //private void richTextBox_TextChanged(object sender, EventArgs e)

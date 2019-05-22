@@ -85,9 +85,9 @@
             this.exitButton = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
+            this.SearchTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.SiemComboBox = new System.Windows.Forms.ComboBox();
             this.lineColInfotextBox1 = new System.Windows.Forms.TextBox();
-            this.SearchTextBox = new System.Windows.Forms.TextBox();
             this.CopySigmacButton = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
@@ -354,7 +354,7 @@
             // 
             // chooseSigmaFileButton
             // 
-            this.chooseSigmaFileButton.Location = new System.Drawing.Point(12, 790);
+            this.chooseSigmaFileButton.Location = new System.Drawing.Point(12, 794);
             this.chooseSigmaFileButton.Name = "chooseSigmaFileButton";
             this.chooseSigmaFileButton.Size = new System.Drawing.Size(150, 28);
             this.chooseSigmaFileButton.TabIndex = 6;
@@ -364,7 +364,7 @@
             // 
             // sigmaConverterButton
             // 
-            this.sigmaConverterButton.Location = new System.Drawing.Point(12, 823);
+            this.sigmaConverterButton.Location = new System.Drawing.Point(12, 828);
             this.sigmaConverterButton.Name = "sigmaConverterButton";
             this.sigmaConverterButton.Size = new System.Drawing.Size(150, 28);
             this.sigmaConverterButton.TabIndex = 8;
@@ -381,10 +381,10 @@
             this.SigmacRichTextBox.Cursor = System.Windows.Forms.Cursors.PanNE;
             this.SigmacRichTextBox.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SigmacRichTextBox.ForeColor = System.Drawing.Color.LightSeaGreen;
-            this.SigmacRichTextBox.Location = new System.Drawing.Point(16, 857);
+            this.SigmacRichTextBox.Location = new System.Drawing.Point(16, 865);
             this.SigmacRichTextBox.Name = "SigmacRichTextBox";
             this.SigmacRichTextBox.ReadOnly = true;
-            this.SigmacRichTextBox.Size = new System.Drawing.Size(1391, 144);
+            this.SigmacRichTextBox.Size = new System.Drawing.Size(1391, 156);
             this.SigmacRichTextBox.TabIndex = 9;
             this.SigmacRichTextBox.Text = "";
             // 
@@ -393,6 +393,7 @@
             this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.ContextMenuStrip = this.contextMenuStrip2;
+            this.tabControl1.Cursor = System.Windows.Forms.Cursors.Default;
             this.tabControl1.Location = new System.Drawing.Point(12, 97);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -419,7 +420,7 @@
             // 
             this.chosenSigmaFiletextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.chosenSigmaFiletextBox.Location = new System.Drawing.Point(168, 793);
+            this.chosenSigmaFiletextBox.Location = new System.Drawing.Point(169, 794);
             this.chosenSigmaFiletextBox.Name = "chosenSigmaFiletextBox";
             this.chosenSigmaFiletextBox.Size = new System.Drawing.Size(1238, 22);
             this.chosenSigmaFiletextBox.TabIndex = 11;
@@ -584,7 +585,8 @@
             this.toolStripSeparator8,
             this.exitButton,
             this.toolStripSeparator9,
-            this.searchButton});
+            this.searchButton,
+            this.SearchTextBox});
             this.toolStrip1.Location = new System.Drawing.Point(0, 28);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1419, 27);
@@ -595,6 +597,11 @@
             // 
             this.toolStripSeparator9.Name = "toolStripSeparator9";
             this.toolStripSeparator9.Size = new System.Drawing.Size(6, 27);
+            // 
+            // SearchTextBox
+            // 
+            this.SearchTextBox.Name = "SearchTextBox";
+            this.SearchTextBox.Size = new System.Drawing.Size(350, 27);
             // 
             // SiemComboBox
             // 
@@ -607,7 +614,7 @@
             "xpack-watcher",
             "logpoint",
             "splunk"});
-            this.SiemComboBox.Location = new System.Drawing.Point(168, 823);
+            this.SiemComboBox.Location = new System.Drawing.Point(169, 828);
             this.SiemComboBox.Name = "SiemComboBox";
             this.SiemComboBox.Size = new System.Drawing.Size(570, 24);
             this.SiemComboBox.TabIndex = 13;
@@ -616,25 +623,19 @@
             // 
             this.lineColInfotextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lineColInfotextBox1.BackColor = System.Drawing.SystemColors.Control;
-            this.lineColInfotextBox1.Location = new System.Drawing.Point(1238, 769);
+            this.lineColInfotextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lineColInfotextBox1.Location = new System.Drawing.Point(1235, 773);
             this.lineColInfotextBox1.Name = "lineColInfotextBox1";
-            this.lineColInfotextBox1.Size = new System.Drawing.Size(168, 22);
+            this.lineColInfotextBox1.Size = new System.Drawing.Size(172, 15);
             this.lineColInfotextBox1.TabIndex = 15;
             this.lineColInfotextBox1.Text = "Line 0 | columns: 1";
             this.lineColInfotextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // SearchTextBox
-            // 
-            this.SearchTextBox.Location = new System.Drawing.Point(323, 28);
-            this.SearchTextBox.Name = "SearchTextBox";
-            this.SearchTextBox.Size = new System.Drawing.Size(350, 22);
-            this.SearchTextBox.TabIndex = 16;
             // 
             // CopySigmacButton
             // 
             this.CopySigmacButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.CopySigmacButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.CopySigmacButton.Location = new System.Drawing.Point(1207, 823);
+            this.CopySigmacButton.Location = new System.Drawing.Point(1207, 826);
             this.CopySigmacButton.Name = "CopySigmacButton";
             this.CopySigmacButton.Size = new System.Drawing.Size(199, 33);
             this.CopySigmacButton.TabIndex = 17;
@@ -646,9 +647,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1419, 1033);
             this.Controls.Add(this.CopySigmacButton);
-            this.Controls.Add(this.SearchTextBox);
             this.Controls.Add(this.lineColInfotextBox1);
             this.Controls.Add(this.SiemComboBox);
             this.Controls.Add(this.chosenSigmaFiletextBox);
@@ -735,8 +736,8 @@
         private System.Windows.Forms.ComboBox SiemComboBox;
         private System.Windows.Forms.TextBox lineColInfotextBox1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
-        private System.Windows.Forms.TextBox SearchTextBox;
         private System.Windows.Forms.Button CopySigmacButton;
+        private System.Windows.Forms.ToolStripTextBox SearchTextBox;
     }
 }
 
