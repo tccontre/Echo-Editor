@@ -1,11 +1,11 @@
 <configuration>
   <OutPutFolder>SigmaOutput</OutPutFolder>
   <TemplateFolder>templates</TemplateFolder>
-  <SigmaNameFormat>CS&lt;tid&gt;.sigma</SigmaNameFormat>
-  <Team>Blue Team</Team>
+  <SigmaNameFormat>IS&lt;tid&gt;.sigma</SigmaNameFormat>
+  <Team>ADS</Team>
   <MitreDomain>https://attack.mitre.org</MitreDomain>
   <SigmacFolder>sigma-master\tools</SigmacFolder>
-  <Author>iron-man</Author>
+  <Author>tccontre</Author>
   <Id>IS&lt;tid&gt;</Id>
-  <PythonPath>C:\Users\Admin\Desktop\Lab\virtual_station\Sigma_Dev\Scripts\python.exe</PythonPath>
+  <PythonPath>C:\python\Scripts\python.exe</PythonPath>
 </configuration>

@@ -1,0 +1,19 @@
+title: PowerShell
+description: whoami command that can be used by attacker in reconnaisance of machine.
+reference: https://attack.mitre.org/techniques/T1086
+status: development
+author: tccontre,ADS
+logsource:
+    product: windows
+    service: sysmon
+detection:
+    selection:
+       EventCode: 1
+       Commandline: "*whoami"
+    condition: selection
+tags:
+  - attack.execution
+  - attack.t1086
+
+falsepositives: unknown
+level: 2
