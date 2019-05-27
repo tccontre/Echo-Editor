@@ -2,7 +2,7 @@
   <OutPutFolder>SigmaOutput</OutPutFolder>
   <TemplateFolder>templates</TemplateFolder>
   <SigmaNameFormat>IS&lt;tid&gt;.sigma</SigmaNameFormat>
-  <Team>ADS</Team>
+  <Team>BuleTeam</Team>
   <MitreDomain>https://attack.mitre.org</MitreDomain>
   <SigmacFolder>sigma-master\tools</SigmacFolder>
   <Author>tccontre</Author>
