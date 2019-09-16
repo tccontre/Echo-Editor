@@ -2,7 +2,7 @@ title: PowerShell
 description: whoami command that can be used by attacker in reconnaisance of machine.
 reference: https://attack.mitre.org/techniques/T1086
 status: development
-author: tccontre,ADS
+author: tccontre,BlueTeam
 logsource:
     product: windows
     service: sysmon
