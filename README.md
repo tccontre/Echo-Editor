@@ -55,7 +55,11 @@ search highlight string feature.
 
 <img src="screenshots/e.PNG"> </img>
 
+
+
 sigmac converter integration from florian Roth
+
+
 <img src="screenshots/c.PNG"> </img>
 
 <img src="screenshots/4.PNG"> </img>
