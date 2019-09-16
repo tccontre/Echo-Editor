@@ -1,2 +1,4 @@
-# Echo-Editor
-basic editor design in developing sigma signature
+Echo-Editor
+==============================
+an editor designed for developing sigma rules.
+
