@@ -1,4 +1,4 @@
-Echo-Editor
+Echo-Editor - by tccontre
 ==============================
 simple editor that has some automate features in developing sigma rules.
 
